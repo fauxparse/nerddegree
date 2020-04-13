@@ -1,0 +1,12 @@
+<%= content_tag :article, class: 'episode', data: { number: episode.number || 0 } do %>
+  <h3><%= link_to episode, episode_url(episode) %></h3>
+  <div class="date">
+    <%= l episode.date, format: :date %>
+  </div>
+  <div class="content">
+    <%= markdown episode.content %>
+    <% if episode.url?%>
+      <%= render 'player', episode: episode %>
+    <% end %>
+  </div>
+<% end %>

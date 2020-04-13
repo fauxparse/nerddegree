@@ -1,0 +1,85 @@
+$jp-seek-bar-size: 1em;
+$jp-volume-bar-size: 0.75em;
+$jp-control-size: 1.75em;
+
+.jp-audio {
+  position: relative;
+  height: $jp-seek-bar-size * 1.5 + $jp-control-size;
+}
+
+.jp-progress {
+  @include position(absolute, 0em 0em null 0em);
+}
+
+@mixin progress-bar($size) {
+  position: relative;
+  height: $size;
+  background: rgba(black, 0.1);
+  border-radius: $size/2;
+  cursor: pointer;
+
+  > div {
+    @include position(absolute, 0em null 0em 0em);
+    min-width: $size;
+    max-width: 100%;
+    border-radius: $size/2;
+    background: $cyan;
+  }
+}
+
+.jp-seek-bar {
+  @include progress-bar($jp-seek-bar-size);
+}
+
+.jp-volume-bar {
+  @include progress-bar($jp-volume-bar-size);
+  @include position(absolute, null 0em (($jp-control-size - $jp-volume-bar-size)/2) null);
+  width: 25%;
+
+  &::before {
+    @include position(absolute, (($jp-control-size - $jp-volume-bar-size)/-2) null null (-$jp-control-size));
+    width: $jp-control-size;
+    height: $jp-control-size;
+    line-height: $jp-control-size;
+    vertical-align: middle;
+    text-align: center;
+    content: "\f028";
+    font-family: "FontAwesome";
+  }
+
+  > div {
+    background-color: $yellow;
+  }
+}
+
+.jp-controls {
+  @include position(absolute, null null 0em 0em);
+
+  li {
+    float: left;
+    margin-right: $jp-control-size/6;
+
+    a {
+      display: block;
+      width: 1em;
+      height: 1em;
+      line-height: 1em;
+      color: $magenta;
+      font-size: $jp-control-size;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}
+
+.jp-time-holder {
+  @include position(absolute, null 25% 0em $jp-control-size*2.166666667);
+  padding: 0 2.5em 0 0.5em;
+  text-align: center;
+  line-height: $jp-control-size;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $medium-gray;
+}

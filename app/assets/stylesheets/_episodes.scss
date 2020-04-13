@@ -1,0 +1,214 @@
+header {
+  background: white;
+
+  h1 {
+    text-align: center;
+    font-size: 300%;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 3em;
+      margin: 0.5em 0;
+      background: url(image-path("logo-large.svg")) no-repeat 50% 50%;
+      background-size: contain;
+    }
+  }
+
+  h2 {
+    color: $medium-gray;
+    text-align: center;
+    font-size: 1em;
+  }
+}
+
+.next-show {
+  background: $dark-gray;
+  color: white;
+
+  b {
+    text-transform: uppercase;
+    color: $yellow;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 40em;
+  }
+}
+
+section.episodes .container {
+  padding: 0;
+}
+
+.episode-list {
+  padding-top: 1em;
+}
+
+$episode-number-size: 4em;
+
+.episode {
+  position: relative;
+  margin-bottom: 2em;
+
+  h3, .date {
+    text-align: center;
+  }
+
+  .date {
+    font-family: $header-font-family;
+    color: $medium-gray;
+    margin-bottom: 0.75em;
+  }
+
+  &[data-number]::before {
+    display: block;
+    margin: 0 auto 0.5em;
+    font-size: $episode-number-size/2;
+    content: attr(data-number);
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    background: $magenta;
+    color: white;
+    font-family: $header-font-family;
+    border-radius: 50%;
+  }
+
+  &[data-number="0"]::before {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    margin: 2em auto;
+    display: block;
+    width: 50%;
+    height: 1px;
+    background: $light-gray;
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+
+  @media screen and (min-width: 860px) {
+    padding-left: 10em;
+
+    h3, .date {
+      text-align: left;
+    }
+
+    &[data-number]::before {
+      font-size: $episode-number-size;
+      @include position(absolute, 0em null null 0em);
+    }
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .episodes {
+    > .container {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  .episode-list {
+    flex: 2;
+    margin-right: 2rem;
+  }
+
+  aside.sidebar {
+    position: sticky;
+    top: 0;
+    flex: 1;
+  }
+}
+
+aside.sidebar {
+  padding-top: 1em;
+}
+
+.social-media {
+  margin: 0;
+
+  li {
+    a {
+      @extend button;
+      display: block;
+      position: relative;
+      margin-bottom: 1em;
+      font-weight: normal;
+
+      &::before {
+        float: left;
+        font-family: "FontAwesome";
+        font-size: 0.875em;
+        vertical-align: middle;
+        width: 1em;
+        text-align: center;
+        padding-right: 0.857142857em;
+        margin-right: 0.857142857em;
+        border-right: 1px solid rgba(white, 0.25em);
+      }
+
+      &[rel="itunes"] { background-color: $magenta; }
+      &[rel="twitter"] { background-color: #00B0ED; }
+      &[rel="facebook"] { background-color: #3B5998; }
+      &[rel="podcast"] { background-color: #ed3b00; }
+
+      &[rel="itunes"]::before { content: "\f001"; }
+      &[rel="twitter"]::before { content: "\f099"; }
+      &[rel="facebook"]::before { content: "\f09a"; }
+      &[rel="podcast"]::before { content: "\f09e"; }
+    }
+  }
+}
+
+footer {
+  background: $dark-gray;
+  color: $light-gray;
+
+  b {
+    color: $yellow;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0 auto 0.75em;
+    text-align: center;
+    max-width: 40em;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: 1em auto;
+      max-width: 10em;
+      height: 3em;
+      background: url(image-path("logo-mono.svg")) no-repeat 50% 50%;
+      background-size: contain;
+      opacity: 0.15;
+    }
+  }
+}
+
+.credit {
+  font-size: 0.875em;
+  background: #eee;
+  padding: 0.5em;
+  border-radius: 0.25em;
+
+  a {
+    small {
+      text-transform: uppercase;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+}

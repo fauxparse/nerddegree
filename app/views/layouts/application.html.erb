@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Nerd Degree</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Arvo:400,700' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= tag :link, rel: :alternate, type: "application/rss+xml", title: 'The Nerd Degree Podcast', href: episodes_url(format: :rss) %>
+
+    <%= tag :meta, property: 'og:site_name', content: 'The Nerd Degree' %>
+    <%= tag :meta, property: 'og:image', content: image_url('facebook-logo.png') %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>The Nerd Degree</h1>
+        <h2>Six nerds. Two teams. No Wikipedia</h2>
+      </div>
+    </header>
+
+    <section class="next-show">
+      <div class="container">
+        <p>Shows recorded live at <a href="https://littleandromeda.co.nz/" target="_blank">Little Andromeda</a>
+      </div>
+    </section>
+
+    <section class="episodes">
+      <div class="container">
+        <div class="episode-list">
+          <%= yield %>
+        </div>
+
+        <aside class="sidebar">
+          <ul class="social-media">
+            <li><%= link_to "iTunes", "https://itunes.apple.com/podcast/the-nerd-degree/id927636661", rel: :itunes, target: :_blank %></li>
+            <li><%= link_to "Facebook", "http://fb.com/nerddegree", rel: :facebook, target: :_blank %></li>
+            <li><%= link_to "Twitter", "http://twitter.com/nerddegree", rel: :twitter, target: :_blank %></li>
+            <li><%= link_to "Podcast", episodes_url(format: :rss), rel: :podcast, target: :_blank %></li>
+          </ul>
+
+          <p class="credit" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://freemusicarchive.org/music/Rolemusic/gigs_n_contest/">
+            Theme music: “Another beek beep beer please” by
+            <%= link_to 'Rolemusic', 'http://rolemusic.sawsquarenoise.com', rel: 'cc:attributionURL', property: 'cc:attributionName' %>.
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          <b>The Nerd Degree</b>
+          is a panel show by nerds, for nerds.
+          It’s the brainchild of Brendon Bennetts
+          and is recorded live at Little Andromeda in
+          <nobr>Christchurch, New Zealand.</nobr>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

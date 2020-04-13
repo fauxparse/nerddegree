@@ -1,0 +1,27 @@
+.date.field {
+  select {
+    display: inline-block;
+  }
+}
+
+$progress-bar-size: 0.5em;
+
+.progress {
+  display: block;
+  position: relative;
+  height: $progress-bar-size;
+  border-radius: $progress-bar-size/2;
+  background: #eee;
+  margin-bottom: 0.75em;
+
+  .bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: $progress-bar-size/2;
+    min-width: $progress-bar-size;
+    max-width: 100%;
+    background: $cyan;
+  }
+}

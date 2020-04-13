@@ -1,0 +1,8 @@
+en:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      date: "%A %e %B %Y"

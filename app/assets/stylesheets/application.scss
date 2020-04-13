@@ -1,0 +1,72 @@
+@import "./fonts";
+
+@import "normalize";
+@import "bourbon";
+@import "base/base";
+@import "neat";
+@import "font-awesome";
+
+@import "./forms";
+@import "./player";
+
+@import "./episodes";
+
+body {
+  background: white;
+}
+
+body > header,
+body > section,
+body > footer {
+  padding: 0 1em;
+}
+
+body > section {
+  background: #f8f8f8;
+}
+
+.container {
+  @include outer-container;
+  padding: 1em 0;
+}
+
+.coming-soon {
+  @include outer-container;
+  text-align: center;
+  padding: 4em 0;
+  background: white;
+
+  img {
+    display: block;
+    margin: 2em auto;
+    max-width: 80%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 400%;
+  }
+
+  h2 {
+    color: $light-gray;
+  }
+
+  .social-media {
+    li {
+      display: inline-block;
+      margin: 0 0.5em;
+
+      font-size: 1.75em;
+
+      a {
+
+        &::before {
+          font-family: "FontAwesome";
+        }
+
+        &[rel="twitter"]::before { content: "\f099"; }
+        &[rel="facebook"]::before { content: "\f082"; }
+      }
+    }
+  }
+}
