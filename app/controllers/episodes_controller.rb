@@ -12,7 +12,7 @@ class EpisodesController < ApplicationController
     respond_to do |format|
       format.html do
         @episodes = Episode.latest_first
-        render :coming_soon unless @episodes.any?
+        # render :coming_soon unless @episodes.any?
       end
 
       format.rss do

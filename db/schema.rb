@@ -15,15 +15,15 @@ ActiveRecord::Schema.define(version: 2020_04_12_045923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "episodes", id: :serial, force: :cascade do |t|
-    t.string "title", limit: 255
+  create_table "episodes", force: :cascade do |t|
+    t.string "title"
     t.date "date"
-    t.string "url", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "url"
     t.integer "number"
     t.text "content"
     t.integer "size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
