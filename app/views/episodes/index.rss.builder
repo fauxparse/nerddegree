@@ -23,7 +23,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:a
     xml.itunes :block, "no"
     xml.itunes :category, :text => "Comedy"
     xml.itunes :category, :text => "TV & Film"
-    xml.itunes :category, :text => "Games & Hobbies"
+    xml.itunes :category, :text => "Leisure"
 
     @episodes.each do |episode|
       description = episode.content
