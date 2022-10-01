@@ -1,6 +1,6 @@
 title = "The Nerd Degree"
 author = "The Nerd Degree"
-description = "The Nerd Degree is a monthly comedy panel show performed live at Orange Studios in Christchurch, New Zealand."
+description = "The Nerd Degree is a monthly comedy panel show performed live at Little Andromeda in Christchurch, New Zealand."
 
 xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:atom" => "http://www.w3.org/2005/Atom", :version => "2.0" do
   xml.channel do
@@ -34,7 +34,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:a
           xml.cdata! description
         end
         xml.pubDate episode.date.to_time.to_s(:rfc822)
-        xml.enclosure :url => episode.url, :type => "audio/x-mp3", length: episode.size
+        xml.enclosure :url => episode.url, :type => "audio/mpeg", length: episode.size
         xml.link episode_url(episode)
         xml.guid({:isPermaLink => "false"}, episode_url(episode))
         xml.itunes :author, author
