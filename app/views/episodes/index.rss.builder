@@ -12,7 +12,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd", "xmlns:a
     xml.pubDate @episodes.first.date.to_time.to_s(:rfc822)
     xml.lastBuildDate @episodes.first.date.to_time.to_s(:rfc822)
     xml.itunes :author, author
-    xml.itunes :subtitle, "Six nerds. Two teams. No Wikipedia."
+    xml.itunes :subtitle, "Six nerds. No Wikipedia."
     xml.itunes :keywords, "nerds, geeks, pop culture, quiz, panel, star wars, star trek"
     xml.itunes :explicit, "yes"
     xml.itunes :image, :href => image_url("podcast-image.png")
